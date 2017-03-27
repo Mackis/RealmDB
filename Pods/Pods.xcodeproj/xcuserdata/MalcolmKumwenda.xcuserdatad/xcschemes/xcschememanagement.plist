@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DOAlertController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RealmDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>30B71AC835921183FDABA5EEADC25D88</key>
+		<key>76EEACE43D89718E1BAF5889123C6780</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>76C7B2F7328DDCAB8A1E1615479DE867</key>
+		<key>A211D74DB17B8448A4FC721FD005F87B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C91EBFB24A41DF34219C00FFF42CB59</key>
+		<key>BE749C49E3029B91F43912112CA517F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8442C7844A1D81277C01FE9D958EBEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

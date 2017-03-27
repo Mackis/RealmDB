@@ -1,4 +1,5 @@
 PODS:
+  - DOAlertController (1.0.0)
   - Realm (2.4.3):
     - Realm/Headers (= 2.4.3)
   - Realm/Headers (2.4.3)
@@ -6,12 +7,14 @@ PODS:
     - Realm (= 2.4.3)
 
 DEPENDENCIES:
+  - DOAlertController
   - RealmSwift
 
 SPEC CHECKSUMS:
+  DOAlertController: d22fca7cd83b5eeeb24b78a1c6c76ed08cc28dac
   Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
   RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
 
-PODFILE CHECKSUM: 49f3d9dfd97e5b9d3565036fe2e360ecb94282ee
+PODFILE CHECKSUM: a42e2a8bc977c2a918030bdb1a982a99ec710a37
 
 COCOAPODS: 1.1.1
