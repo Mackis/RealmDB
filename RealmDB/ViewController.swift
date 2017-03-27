@@ -24,11 +24,13 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    // Mark: - Lyfecyle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    //Mark: - Actions
     @IBAction func addNew(_ sender: Any) {
         let alertController = ZWAlertController(title: "New Todo", message: "What do you plan to do?", preferredStyle: .alert)
         alertController.addTextFieldWithConfigurationHandler{(UITextField) in
@@ -99,7 +101,6 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
                 self.realm.delete(item)
             }
         }
-        
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
