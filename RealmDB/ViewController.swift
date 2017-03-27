@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func addNew(_ sender: Any) {
-        let alertController = UIAlertController(title: "New Todo", message: "What do you plan to do?", preferredStyle: .alert)
+        let alertController = DOAlertController(title: "New Todo", message: "What do you plan to do?", preferredStyle: .alert)
         
         alertController.addTextField { (UITextField) in
             
