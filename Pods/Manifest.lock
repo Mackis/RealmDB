@@ -4,14 +4,17 @@ PODS:
   - Realm/Headers (2.4.3)
   - RealmSwift (2.4.3):
     - Realm (= 2.4.3)
+  - ZWAlertController (0.0.2)
 
 DEPENDENCIES:
   - RealmSwift
+  - ZWAlertController
 
 SPEC CHECKSUMS:
   Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
   RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
+  ZWAlertController: cfbeb6948e4095bb54085fc847872ba0d1ad9135
 
-PODFILE CHECKSUM: 49f3d9dfd97e5b9d3565036fe2e360ecb94282ee
+PODFILE CHECKSUM: 15b1f5630055915ecffb31f00a133972ac20b119
 
 COCOAPODS: 1.1.1

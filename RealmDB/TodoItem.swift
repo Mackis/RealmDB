@@ -10,5 +10,5 @@ import RealmSwift
 
 class TodoItem: Object {
     dynamic var detail = ""
-    dynamic var status = 0
+    dynamic var status = ""
 }

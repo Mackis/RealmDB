@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ZWAlertController
 
 class ViewController: UIViewController {
 
@@ -29,29 +30,31 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func addNew(_ sender: Any) {
-        let alertController = DOAlertController(title: "New Todo", message: "What do you plan to do?", preferredStyle: .alert)
-        
-        alertController.addTextField { (UITextField) in
+        let alertController = ZWAlertController(title: "New Todo", message: "What do you plan to do?", preferredStyle: .alert)
+        alertController.addTextFieldWithConfigurationHandler{(UITextField) in
             
         }
         
-        let cancel_action = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
-        
-        alertController.addAction(cancel_action)
-        
-        let add_action = UIAlertAction.init(title: "Add", style: .default) { (UIAlertAction) -> () in
-            let textField_todo = (alertController.textFields?.first)! as UITextField
+        let add_action = ZWAlertAction.init(title: "Add", style: .default) { (UIAlertAction) -> () in
+            let textField_todo = (alertController.textFields?.first)! as! UITextField
             print("You entered \(textField_todo.text)")
             let todoItem = TodoItem()
             todoItem.detail = textField_todo.text!
-            todoItem.status = 0
+            todoItem.status = "⚠️"
             try! self.realm.write {
                 self.realm.add(todoItem)
-                self.tableView.insertRows(at: [IndexPath.init(row: self.todoList.count-1, section: 0)], with: .automatic)
+                self.tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
             }
         }
         alertController.addAction(add_action)
+        
+        
+        let cancel_action = ZWAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(cancel_action)
+        
         present(alertController, animated: true, completion: nil)
+       
     }
 }
 
@@ -59,7 +62,7 @@ class ViewController: UIViewController {
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let item = todoList[indexPath.row]
+        let item = todoList[(todoList.count-1) - indexPath.row]
         cell.textLabel?.text = item.detail
         cell.detailTextLabel?.text = "\(item.status)"
         return cell
@@ -74,12 +77,12 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = todoList[indexPath.row]
+        let item = todoList[(todoList.count-1) - indexPath.row]
         try! self.realm.write {
-            if (item.status == 0){
-                item.status = 1
+            if (item.status == "⚠️"){
+                item.status = "✅"
             }else {
-                item.status = 0
+                item.status = "⚠️"
             }
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -91,7 +94,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete){
-            let item = todoList[indexPath.row]
+            let item = todoList[(todoList.count-1) - indexPath.row]
             try! self.realm.write {
                 self.realm.delete(item)
             }
