@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         alertController.addTextFieldWithConfigurationHandler{(UITextField) in
             
         }
-        
+        alertController.overlayColor = UIColor(red:43/255, green:61/255, blue:85/255, alpha:0.3)
         let add_action = ZWAlertAction.init(title: "Add", style: .default) { (UIAlertAction) -> () in
             let textField_todo = (alertController.textFields?.first)! as! UITextField
             print("You entered \(textField_todo.text)")
@@ -48,9 +48,10 @@ class ViewController: UIViewController {
                 self.tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
             }
         }
+        alertController.buttonBgColor[.default] = UIColor(red:43/255, green:61/255, blue:85/255, alpha:1)
         alertController.addAction(add_action)
         
-        
+        alertController.buttonBgColor[.cancel] = UIColor(red:255/255, green:23/255, blue:85/255, alpha:1)
         let cancel_action = ZWAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         
         alertController.addAction(cancel_action)
